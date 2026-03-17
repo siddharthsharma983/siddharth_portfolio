@@ -31,10 +31,19 @@ const Projects = () => {
       title: "VideoTube Backend API",
       duration: "Mar 2025",
       description:
-        "Scalable YouTube-style backend API built with Node.js, Express, and MongoDB featuring JWT authentication, Cloudinary upload, comments, likes, playlists, subscriptions, and watch history tracking.",
+        "Production-ready scalable backend API for a YouTube-like platform built using Node.js, Express, and MongoDB. Implements secure JWT authentication, Cloudinary-based media handling, subscriptions, playlists, likes, comments, and watch history. Designed with clean architecture and deployed on cloud infrastructure.",
       image: videotubeImg,
+      liveLink:
+        "https://videotube-backend-yqob.onrender.com/api/v1/healthcheck",
       githubLink: "https://github.com/siddharthsharma983/videotube-backend",
-      techStack: ["Node.js", "Express.js", "MongoDB", "JWT", "Cloudinary"],
+      techStack: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "Cloudinary",
+        "Render",
+      ],
       category: "Backend API",
     },
   ];
@@ -70,9 +79,10 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group h-full"
             >
-              <div className="bg-[#0f172a] border border-white/10 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-500/50">
+              {/* 🔥 FIX 1: FULL HEIGHT CARD */}
+              <div className="bg-[#0f172a] border border-white/10 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-500/50 h-full flex flex-col">
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <img
@@ -84,7 +94,7 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col">
+                <div className="p-8 flex flex-col flex-grow">
                   {/* Date + Category */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2 text-gray-400 text-xs uppercase tracking-widest">
@@ -119,30 +129,34 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  {/* Buttons */}
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-3 rounded-xl bg-white text-black font-semibold text-sm uppercase tracking-wide text-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition-all duration-300"
-                    >
-                      Live Preview
-                      <ExternalLink className="inline ml-2" size={16} />
-                    </a>
-                  )}
+                  {/* 🔥 PUSH BUTTONS TO BOTTOM */}
+                  <div className="mt-auto">
+                    {/* Live Button */}
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 rounded-xl bg-white text-black font-semibold text-sm uppercase tracking-wide text-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition-all duration-300 mb-3 block"
+                      >
+                        Live Preview
+                        <ExternalLink className="inline ml-2" size={16} />
+                      </a>
+                    )}
 
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold text-sm uppercase tracking-wide text-center hover:opacity-90 transition-all duration-300"
-                    >
-                      View Repository
-                      <Github className="inline ml-2" size={16} />
-                    </a>
-                  )}
+                    {/* 🔥 FIX 2: REPO BUTTON WHITE + HOVER GRADIENT */}
+                    {project.githubLink && (
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3 rounded-xl bg-white text-black font-semibold text-sm uppercase tracking-wide text-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 hover:text-white transition-all duration-300 block"
+                      >
+                        View Repository
+                        <Github className="inline ml-2" size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>

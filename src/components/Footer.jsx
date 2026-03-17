@@ -95,10 +95,10 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
-            <p className="text-sm text-gray-400">📍 Chandigarh, India</p>
+            <p className="text-sm text-gray-400">📍 Sampla (Haryana), India</p>
             <p className="text-sm text-gray-400">📧 gs7248543@gmail.com</p>
             <p className="text-sm text-green-400 mt-2">
-              ● Available for Projects
+              Available for Projects
             </p>
           </div>
         </div>

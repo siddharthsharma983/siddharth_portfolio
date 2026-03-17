@@ -21,7 +21,7 @@ const Hero = () => {
         >
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/60 border border-white/10 text-purple-400 text-sm font-medium mb-8">
-            ● Available for Full Stack Opportunities
+            Available for Full Stack Opportunities
           </div>
 
           {/* Heading */}
